@@ -22,19 +22,11 @@ export function CollectionsSection({ collections }: CollectionsSectionProps) {
       </div>
       <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-4">
         {collections.map((collection) => (
-<<<<<<< HEAD
-          <Card
-            className="flex min-h-16 items-center gap-2.5 rounded-xl border border-white/[0.08] bg-black p-2.5 text-white shadow-none"
-            key={collection.title}
-          >
-            <div className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-[#2563ff]">
-=======
          <Card
   className="group flex min-h-16 cursor-pointer items-center gap-2.5 rounded-xl border border-white/[0.08] bg-black p-2.5 text-white shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.02]"
             key={collection.title}
           >
             <div className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-[#2563ff] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#2563ff]/10">
->>>>>>> feat/micro-interactions
               <collection.icon className="size-4" />
             </div>
             <div className="min-w-0">

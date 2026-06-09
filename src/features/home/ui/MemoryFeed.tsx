@@ -14,7 +14,6 @@ export function MemoryFeed({
 }: MemoryFeedProps) {
   return (
     <section>
-<<<<<<< HEAD
       <div className="mb-3 flex items-center justify-between lg:hidden">
         <h2 className="text-xl font-semibold">Memories</h2>
         <Button className="text-[#2563ff]" variant="ghost">
@@ -22,9 +21,7 @@ export function MemoryFeed({
           <ChevronDown className="size-4" />
         </Button>
       </div>
-=======
  
->>>>>>> feat/micro-interactions
       {isLoading ? (
         <p className="mb-4 text-sm text-[#a1a1aa]">Loading your memories...</p>
       ) : null}

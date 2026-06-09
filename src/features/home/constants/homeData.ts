@@ -1,20 +1,11 @@
 import {
   FileText,
-<<<<<<< HEAD
-  Home,
-  Plus,
-} from "lucide-react";
-
-export const mobileNavItems = [
-  { label: "Home", icon: Home, active: true },
-=======
   Plus,
   Search,
 } from "lucide-react";
 
 export const mobileNavItems = [
   { label: "Search", icon: Search, active: true },
->>>>>>> feat/micro-interactions
   { label: "Add", icon: Plus },
   { label: "Your Library", icon: FileText },
 ];
