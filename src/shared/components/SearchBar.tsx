@@ -10,6 +10,7 @@ type SearchBarProps = {
   onChange?: (value: string) => void;
   showFilter?: boolean;
   value?: string;
+  autoFocus?: boolean;
 };
 
 export function SearchBar({
@@ -17,9 +18,17 @@ export function SearchBar({
   onChange,
   showFilter = false,
   value,
+  autoFocus = false,
 }: SearchBarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+  if (autoFocus) {
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 150);
+  }
+}, [autoFocus]);
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
@@ -48,6 +57,7 @@ export function SearchBar({
 
   return (
     <Command
+      autoFocus={autoFocus}
       shouldFilter={false}
       className={cn(
         "group relative h-10 rounded-xl border border-white/10 bg-black p-0 text-white/70 shadow-none transition-colors focus-within:border-[#2563ff]/50 focus-within:bg-[#080808] focus-within:ring-3 focus-within:ring-[#2563ff]/10 [&_[data-slot=command-input-wrapper]]:h-full [&_[data-slot=command-input-wrapper]]:p-0 [&_[data-slot=input-group]]:flex [&_[data-slot=input-group]]:h-full! [&_[data-slot=input-group]]:items-center [&_[data-slot=input-group]]:rounded-xl! [&_[data-slot=input-group]]:border-0 [&_[data-slot=input-group]]:bg-transparent [&_[data-slot=input-group]]:px-2.5 [&_[data-slot=input-group]]:shadow-none! [&_[data-slot=command-input]]:h-full [&_[data-slot=command-input]]:self-center [&_[data-slot=command-input]]:font-medium [&_[data-slot=command-input]]:leading-none [&_[data-slot=command-input]]:text-white [&_[data-slot=command-input]]:placeholder:text-white/40 [&_[data-slot=input-group-addon]]:flex [&_[data-slot=input-group-addon]]:items-center [&_[data-slot=input-group-addon]]:text-white/45",
