@@ -30,6 +30,7 @@ export function DashboardLayout({
               <User className="size-5" />
             </Button>
           </div>
+<<<<<<< HEAD
           <KeepItLogo className="absolute left-1/2 top-5 -translate-x-1/2 text-3xl lg:hidden" />
           <div className="hidden w-full max-w-[380px] items-center gap-3 lg:flex">
             <SearchBar
@@ -37,6 +38,13 @@ export function DashboardLayout({
               onChange={onSearchChange}
               value={searchQuery}
             />
+=======
+<div>
+            <KeepItLogo className="absolute left-20 top-5 hidden lg:block -translate-x-1/2 text-3xl " />
+          <KeepItLogo className="absolute left-1/2 top-5 -translate-x-1/2 text-3xl lg:hidden" />
+          <div className="hidden w-full max-w-[380px] items-center gap-3 lg:flex">
+
+>>>>>>> feat/micro-interactions
             <Button
               className="relative text-[#a1a1aa] hover:text-white"
               size="icon"
@@ -51,6 +59,10 @@ export function DashboardLayout({
               <span className="sr-only">Profile</span>
             </Button>
           </div>
+<<<<<<< HEAD
+=======
+</div>
+>>>>>>> feat/micro-interactions
           <Button className="relative text-[#2563ff] lg:hidden" size="icon" variant="ghost">
             <Bell className="size-5" />
             <span className="sr-only">Notifications</span>
@@ -58,13 +70,21 @@ export function DashboardLayout({
         </header>
         {children}
       </main>
+<<<<<<< HEAD
       <div className="fixed inset-x-5 bottom-24 z-30 md:hidden">
+=======
+      {/* <div className="fixed inset-x-5 bottom-24 z-30 md:hidden">
+>>>>>>> feat/micro-interactions
         <SearchBar
           onChange={onSearchChange}
           showFilter
           value={searchQuery}
         />
+<<<<<<< HEAD
       </div>
+=======
+      </div> */}
+>>>>>>> feat/micro-interactions
       <MobileBottomNav />
     </div>
   );

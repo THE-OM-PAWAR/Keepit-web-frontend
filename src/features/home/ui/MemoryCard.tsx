@@ -6,6 +6,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { DisplayMemory } from "@/features/home/types/homeTypes";
 
+<<<<<<< HEAD
+=======
+
+//acccent color for growingin the card
+const accentColors = [
+  "bg-blue-500/20",
+  "bg-purple-500/20",
+  "bg-pink-500/20",
+  "bg-cyan-500/20",
+  "bg-emerald-500/20",
+  "bg-orange-500/20",
+];
+
+
+>>>>>>> feat/micro-interactions
 type MemoryCardProps = {
   className?: string;
   memory: DisplayMemory;
@@ -26,6 +41,7 @@ const cardHeightClass: Record<string, string> = {
 };
 
 export function MemoryCard({ className, memory }: MemoryCardProps) {
+<<<<<<< HEAD
   return (
     <Card
       className={cn(
@@ -33,17 +49,38 @@ export function MemoryCard({ className, memory }: MemoryCardProps) {
         cardHeightClass[memory.size] ?? cardHeightClass.medium,
         className
       )}
+=======
+
+  const accentColor =
+  accentColors[memory.title.length % accentColors.length];
+  
+  return (
+    <Card
+     className={cn(
+  "group relative flex cursor-pointer min-w-0 flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-[#10131a] p-0 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)]",
+  cardHeightClass[memory.size] ?? cardHeightClass.medium,
+  className
+)}
+>>>>>>> feat/micro-interactions
     >
       <div className={`relative ${imageHeightClass[memory.size] ?? imageHeightClass.medium}`}>
         {memory.image ? (
           <Image
             alt=""
+<<<<<<< HEAD
             className="object-cover"
+=======
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+>>>>>>> feat/micro-interactions
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
             src={memory.image}
             unoptimized
           />
+<<<<<<< HEAD
+=======
+          
+>>>>>>> feat/micro-interactions
         ) : (
           <div className="flex h-full items-start bg-[#10141b] p-4 text-sm leading-6 text-[#a1a1aa]">
             <p className="line-clamp-[10]">{memory.content}</p>
@@ -51,14 +88,60 @@ export function MemoryCard({ className, memory }: MemoryCardProps) {
         )}
       </div>
       <Button
+<<<<<<< HEAD
         className="absolute right-2.5 top-2.5 size-8 rounded-xl border border-white/10 bg-[#08090d] text-white hover:bg-[#151922]"
+=======
+        className="absolute right-2.5 top-2.5 size-8 rounded-xl border border-white/10 bg-[#08090d] text-white opacity-60
+hover:opacity-100
+md:opacity-0
+md:group-hover:opacity-100 transition-all duration-300  hover:bg-[#151922]"
+>>>>>>> feat/micro-interactions
         size="icon"
       >
         <MoreVertical className="size-4" />
         <span className="sr-only">More options</span>
       </Button>
+<<<<<<< HEAD
       <CardContent className="border-t border-white/[0.06] bg-[#0b0d12] p-3">
         <h3 className="font-semibold leading-snug text-white">{memory.title}</h3>
+=======
+      <CardContent  className="
+    absolute
+    bottom-0
+    left-0
+    right-0
+    z-20
+    overflow-hidden
+    border-t border-white/[0.08]
+    bg-[#0d1016]/95
+    p-4
+
+    transition-transform
+    duration-500
+translate-y-0 md:translate-y-full
+md:group-hover:translate-y-0
+  ">
+      <div className="absolute inset-0">
+  <div
+  className={cn(
+    `
+      absolute bottom-0 left-1/2
+      h-6 w-6
+      -translate-x-1/2
+      rounded-full
+      scale-0
+      transition-transform
+      duration-500
+      ease-out
+      group-hover:scale-[20]
+    `,
+    accentColor
+  )}
+/>
+</div>
+ <div className="relative z-10">
+        <h3 className="relative z-10 font-semibold leading-snug text-white">{memory.title}</h3>
+>>>>>>> feat/micro-interactions
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs text-[#a1a1aa]">
           <span>{memory.meta}</span>
           <Badge className="bg-white/10 text-white hover:bg-white/10">{memory.type}</Badge>
@@ -66,6 +149,10 @@ export function MemoryCard({ className, memory }: MemoryCardProps) {
             {memory.collection}
           </Badge>
         </div>
+<<<<<<< HEAD
+=======
+         </div>
+>>>>>>> feat/micro-interactions
       </CardContent>
     </Card>
   );
