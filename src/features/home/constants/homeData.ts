@@ -1,11 +1,11 @@
 import {
   FileText,
-  Home,
   Plus,
+  Search,
 } from "lucide-react";
 
 export const mobileNavItems = [
-  { label: "Home", icon: Home, active: true },
+  { label: "Search", icon: Search, active: true },
   { label: "Add", icon: Plus },
   { label: "Your Library", icon: FileText },
 ];
