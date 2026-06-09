@@ -28,17 +28,17 @@ const cardHeightClass: Record<string, string> = {
 export function MemoryCard({ className, memory }: MemoryCardProps) {
   return (
     <Card
-      className={cn(
-        "group relative flex min-w-0 flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0f1115] p-0 transition-colors duration-200 hover:border-white/15",
-        cardHeightClass[memory.size] ?? cardHeightClass.medium,
-        className
-      )}
+     className={cn(
+  "group relative flex cursor-pointer min-w-0 flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-[#10131a] p-0 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)]",
+  cardHeightClass[memory.size] ?? cardHeightClass.medium,
+  className
+)}
     >
       <div className={`relative ${imageHeightClass[memory.size] ?? imageHeightClass.medium}`}>
         {memory.image ? (
           <Image
             alt=""
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
             src={memory.image}
@@ -51,13 +51,13 @@ export function MemoryCard({ className, memory }: MemoryCardProps) {
         )}
       </div>
       <Button
-        className="absolute right-2.5 top-2.5 size-8 rounded-xl border border-white/10 bg-[#08090d] text-white hover:bg-[#151922]"
+        className="absolute right-2.5 top-2.5 size-8 rounded-xl border border-white/10 bg-[#08090d] text-white opacity-0 transition-all duration-300 group-hover:opacity-100 hover:bg-[#151922]"
         size="icon"
       >
         <MoreVertical className="size-4" />
         <span className="sr-only">More options</span>
       </Button>
-      <CardContent className="border-t border-white/[0.06] bg-[#0b0d12] p-3">
+      <CardContent className="border-t border-white/[0.08] bg-[#0d1016] p-4">
         <h3 className="font-semibold leading-snug text-white">{memory.title}</h3>
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs text-[#a1a1aa]">
           <span>{memory.meta}</span>
