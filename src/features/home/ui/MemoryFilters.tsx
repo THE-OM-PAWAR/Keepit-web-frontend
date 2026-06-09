@@ -16,6 +16,16 @@ const categoryFilters = [
   { label: "Learning", value: "learning" },
   { label: "Other", value: "other" },
 ];
+const categoryColors = {
+  all: "#2563ff",
+  personal: "#ec4899",
+  work: "#3b82f6",
+  travel: "#10b981",
+  family: "#f97316",
+  friends: "#06b6d4",
+  learning: "#a855f7",
+  other: "#64748b",
+} as const;
 
 type MemoryFiltersProps = {
   activeCategory: string;
@@ -46,7 +56,13 @@ export function MemoryFilters({
   {activeCategory === filter.value && (
     <motion.div
       layoutId="active-category"
-      className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#2563ff]"
+      style={{
+  backgroundColor:
+    categoryColors[
+      activeCategory as keyof typeof categoryColors
+    ],
+}}
+className="absolute bottom-0 left-0 h-[2px] w-full rounded-full"
       transition={{
         type: "spring",
         stiffness: 500,
