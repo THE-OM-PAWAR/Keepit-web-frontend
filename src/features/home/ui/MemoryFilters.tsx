@@ -2,8 +2,9 @@
 
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"; // not needed now 
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const categoryFilters = [
   { label: "All", value: "all" },
@@ -31,36 +32,29 @@ export function MemoryFilters({
        <div className="flex items-center gap-6 overflow-x-auto no-scrollbar">
   {categoryFilters.map((filter) => (
     <button
-      key={filter.value}
-      onClick={() => onCategoryChange(filter.value)}
-      className={cn(
-        "relative shrink-0 cursor-pointer pb-2 text-sm font-medium transition-colors duration-300",
-        activeCategory === filter.value
-          ? "text-white"
-          : "text-white/50 hover:text-white/80"
-      )}
-    >
-      {filter.label}
-
-      <span
+  key={filter.value}
+  onClick={() => onCategoryChange(filter.value)}
   className={cn(
-    `
-      absolute
-      bottom-0
-      left-0
-      h-[2px]
-      w-full
-      rounded-full
-      bg-[#2563ff]
-      transition-all
-      duration-300
-    `,
+    "relative cursor-pointer shrink-0 pb-2 text-sm font-medium transition-colors duration-300",
     activeCategory === filter.value
-      ? "scale-x-100 opacity-100"
-      : "scale-x-0 opacity-0"
+      ? "text-white"
+      : "text-white/50 hover:text-white"
   )}
-/>
-    </button>
+>
+  {filter.label}
+
+  {activeCategory === filter.value && (
+    <motion.div
+      layoutId="active-category"
+      className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#2563ff]"
+      transition={{
+        type: "spring",
+        stiffness: 500,
+        damping: 35,
+      }}
+    />
+  )}
+</button>
   ))}
 </div>
       </div>
