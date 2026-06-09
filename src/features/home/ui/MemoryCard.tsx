@@ -6,6 +6,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { DisplayMemory } from "@/features/home/types/homeTypes";
 
+
+//acccent color for growingin the card
+const accentColors = [
+  "bg-blue-500/20",
+  "bg-purple-500/20",
+  "bg-pink-500/20",
+  "bg-cyan-500/20",
+  "bg-emerald-500/20",
+  "bg-orange-500/20",
+];
+
+
 type MemoryCardProps = {
   className?: string;
   memory: DisplayMemory;
@@ -26,6 +38,10 @@ const cardHeightClass: Record<string, string> = {
 };
 
 export function MemoryCard({ className, memory }: MemoryCardProps) {
+
+  const accentColor =
+  accentColors[memory.title.length % accentColors.length];
+  
   return (
     <Card
      className={cn(
@@ -44,6 +60,7 @@ export function MemoryCard({ className, memory }: MemoryCardProps) {
             src={memory.image}
             unoptimized
           />
+          
         ) : (
           <div className="flex h-full items-start bg-[#10141b] p-4 text-sm leading-6 text-[#a1a1aa]">
             <p className="line-clamp-[10]">{memory.content}</p>
@@ -51,14 +68,51 @@ export function MemoryCard({ className, memory }: MemoryCardProps) {
         )}
       </div>
       <Button
-        className="absolute right-2.5 top-2.5 size-8 rounded-xl border border-white/10 bg-[#08090d] text-white opacity-0 transition-all duration-300 group-hover:opacity-100 hover:bg-[#151922]"
+        className="absolute right-2.5 top-2.5 size-8 rounded-xl border border-white/10 bg-[#08090d] text-white opacity-60
+hover:opacity-100
+md:opacity-0
+md:group-hover:opacity-100 transition-all duration-300  hover:bg-[#151922]"
         size="icon"
       >
         <MoreVertical className="size-4" />
         <span className="sr-only">More options</span>
       </Button>
-      <CardContent className="border-t border-white/[0.08] bg-[#0d1016] p-4">
-        <h3 className="font-semibold leading-snug text-white">{memory.title}</h3>
+      <CardContent  className="
+    absolute
+    bottom-0
+    left-0
+    right-0
+    z-20
+    overflow-hidden
+    border-t border-white/[0.08]
+    bg-[#0d1016]/95
+    p-4
+
+    transition-transform
+    duration-500
+translate-y-0 md:translate-y-full
+md:group-hover:translate-y-0
+  ">
+      <div className="absolute inset-0">
+  <div
+  className={cn(
+    `
+      absolute bottom-0 left-1/2
+      h-6 w-6
+      -translate-x-1/2
+      rounded-full
+      scale-0
+      transition-transform
+      duration-500
+      ease-out
+      group-hover:scale-[20]
+    `,
+    accentColor
+  )}
+/>
+</div>
+ <div className="relative z-10">
+        <h3 className="relative z-10 font-semibold leading-snug text-white">{memory.title}</h3>
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs text-[#a1a1aa]">
           <span>{memory.meta}</span>
           <Badge className="bg-white/10 text-white hover:bg-white/10">{memory.type}</Badge>
@@ -66,6 +120,7 @@ export function MemoryCard({ className, memory }: MemoryCardProps) {
             {memory.collection}
           </Badge>
         </div>
+         </div>
       </CardContent>
     </Card>
   );
