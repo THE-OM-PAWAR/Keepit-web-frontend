@@ -30,6 +30,7 @@ export function DashboardLayout({
               <User className="size-5" />
             </Button>
           </div>
+          <KeepItLogo className="absolute left-20 top-5 hidden lg:block -translate-x-1/2 text-3xl " />
           <KeepItLogo className="absolute left-1/2 top-5 -translate-x-1/2 text-3xl lg:hidden" />
           <div className="hidden w-full max-w-[380px] items-center gap-3 lg:flex">
             <SearchBar

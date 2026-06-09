@@ -14,13 +14,7 @@ export function MemoryFeed({
 }: MemoryFeedProps) {
   return (
     <section>
-      <div className="mb-3 flex items-center justify-between lg:hidden">
-        <h2 className="text-xl font-semibold">Memories</h2>
-        <Button className="text-[#2563ff]" variant="ghost">
-          Recent
-          <ChevronDown className="size-4" />
-        </Button>
-      </div>
+ 
       {isLoading ? (
         <p className="mb-4 text-sm text-[#a1a1aa]">Loading your memories...</p>
       ) : null}

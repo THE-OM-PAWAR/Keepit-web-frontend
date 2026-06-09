@@ -45,7 +45,7 @@ export function MemoryFilters({
   key={filter.value}
   onClick={() => onCategoryChange(filter.value)}
   className={cn(
-    "relative cursor-pointer shrink-0 pb-2 text-sm font-medium transition-colors duration-300",
+    "relative cursor-pointer shrink-0 pb-2 text-[1rem] font-medium transition-colors duration-300",
     activeCategory === filter.value
       ? "text-white"
       : "text-white/50 hover:text-white"
@@ -74,13 +74,7 @@ className="absolute bottom-0 left-0 h-[2px] w-full rounded-full"
   ))}
 </div>
       </div>
-      <div className="mt-5 hidden items-center justify-between lg:flex">
-        <h1 className="text-xl font-semibold">Memories</h1>
-        <Button className="text-[#2563ff]" variant="ghost">
-          Recent
-          <ChevronDown className="size-4" />
-        </Button>
-      </div>
+
     </section>
   );
 }
