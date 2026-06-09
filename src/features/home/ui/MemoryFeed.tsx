@@ -21,6 +21,7 @@ export function MemoryFeed({
           <ChevronDown className="size-4" />
         </Button>
       </div>
+ 
       {isLoading ? (
         <p className="mb-4 text-sm text-[#a1a1aa]">Loading your memories...</p>
       ) : null}
